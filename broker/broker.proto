@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package broker;
+
+option go_package = "/";
+
+
+service Broker {
+    rpc SendChallenge (ChallengeRequest) returns (ChallengeResponse){};
+    rpc SendMessage (MessageRequest) returns (MessageResponse){};
+}
+
+message ChallengeRequest {
+    string destination = 1;
+}
+
+message ChallengeResponse {
+}
+
+message MessageRequest {
+    string destination = 1;
+    bytes data = 2;
+}
+
+message MessageResponse {
+}
