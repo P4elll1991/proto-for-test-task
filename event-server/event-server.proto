@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package server;
+
+option go_package = "/";
+
+message Event {
+    bytes data = 1;
+}
+
+service EventServer {
+    rpc EventBus (EventBusRequest) returns (EventBusResponse){};
+}
+
+message EventBusRequest {
+    Event event = 1;
+}
+
+message EventBusResponse {
+}
+
